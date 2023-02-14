@@ -2,8 +2,9 @@ package com.example.dependencyinjection.model.service;
 
 import org.springframework.stereotype.Component;
 
-@Component
-public class MyService {
+@Component("MyService")
+public class MyService implements IService {
+    @Override
     public String operation() {
         return "Executing some important process";
     }
