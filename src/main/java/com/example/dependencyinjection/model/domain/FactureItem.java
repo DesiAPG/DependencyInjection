@@ -24,4 +24,8 @@ public class FactureItem {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
+    public double calculatePrice() {
+        return quantity * product.getPrice();
+    }
 }
