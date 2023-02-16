@@ -23,7 +23,7 @@
         <td th:text="${item.product.name}"></td>
         <td th:text="${item.product.price}"></td>
         <td th:text="${item.quantity}"></td>
-        <td th:text="${item.product.price * item.quantity}"></td>
+        <td th:text="${item.calculatePrice()}"></td>
     </tr>
     </tbody>
 </table>
