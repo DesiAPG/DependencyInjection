@@ -1,5 +1,7 @@
 package com.example.dependencyinjection.model.domain;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,6 +18,18 @@ public class Facture {
     @Qualifier("FactureItemsOffice")
     @Autowired
     private List<FactureItem> items;
+
+    @PostConstruct
+    public void init() {
+        client.setName(client.getName().concat(" José"));
+        description = description.concat(" from client: ".concat(client.getName()));
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Facture destroyed ".concat(description));
+    }
+
 
     public String getDescription() {
         return description;
