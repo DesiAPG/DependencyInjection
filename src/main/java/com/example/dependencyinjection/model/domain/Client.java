@@ -2,9 +2,13 @@ package com.example.dependencyinjection.model.domain;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
+import java.io.Serializable;
 
 @Component
-public class Client {
+@RequestScope
+public class Client implements Serializable {
     @Value("${client.name}")
     private String name;
     @Value("${client.surname}")
