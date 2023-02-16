@@ -1,6 +1,7 @@
 package com.example.dependencyinjection.model.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -12,6 +13,7 @@ public class Facture {
     private String description;
     @Autowired
     private Client client;
+    @Qualifier("FactureItemsOffice")
     @Autowired
     private List<FactureItem> items;
 
